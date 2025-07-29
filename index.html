@@ -8,8 +8,19 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #F4F4F4; /* Light grey */
-      color: #0D1B2A; /* Deep navy blue */
+      background-color: #F4F4F4;
+      color: #0D1B2A;
+      margin-top: 90px; /* increased space for larger navbar */
+    }
+    .navbar {
+      background-color: #0D1B2A;
+    }
+    .navbar-brand img {
+      height: 80px;
+    }
+    .navbar-nav .nav-link {
+      color: #FFFFFF;
+      font-size: 0.95rem;
     }
     .hero-text {
       max-width: 900px;
@@ -25,15 +36,15 @@
     footer {
       text-align: center;
       padding: 20px;
-      background-color: #0D1B2A; /* Deep navy blue */
-      color: #FFFFFF; /* White */
-      border-top: 1px solid #4B4B4B; /* Steel grey */
+      background-color: #0D1B2A;
+      color: #FFFFFF;
+      border-top: 1px solid #4B4B4B;
       margin-top: 60px;
       font-size: 0.9rem;
     }
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-      background-color: #FF6F3C; /* Orange */
+      background-color: #FF6F3C;
       border-radius: 50%;
     }
     .contact-info {
@@ -50,6 +61,20 @@
   </style>
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="#">
+        <img src="logo.png" alt="Funteron Logo">
+      </a>
+      <div class="ms-auto">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="mailto:info@funteron.com">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -78,7 +103,7 @@
       <strong>Funteron</strong> is a digital entertainment group built for the new era of sports engagement. The name combines “fun” with <em>teron</em> — the Esperanto word for “earth” — reflecting our mission to deliver globally accessible, intelligent, and rewarding experiences for sports fans everywhere.
     </p>
     <p>
-      Funteron brings together advanced technology, gamified experiences, and affiliate monetization to unlock new revenue streams for media outlets, telecom providers, entertainment platforms, and comparison services. Our first products, <strong>OddsComparisonHub (OCH)</strong> and <strong>The Bracket Hub (TBH)</strong>, offer white-labeled, scalable platforms that convert passive audiences into active, monetizable communities.
+      Funteron brings together advanced technology, gamified experiences, and affiliate monetization to unlock new revenue streams for media outlets, telecom providers, entertainment platforms, and comparison services.
     </p>
   </div>
 
