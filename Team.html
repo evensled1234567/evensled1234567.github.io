@@ -1,0 +1,239 @@
+<!-- team.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Funteron | Team</title>
+  <meta name="description" content="Meet the Funteron leadership team." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #F4F4F4;
+      color: #0D1B2A;
+      margin-top: 90px;
+    }
+    .navbar { background-color: #0D1B2A; }
+    .navbar-brand img { height: 80px; }
+    .navbar-nav .nav-link { color: #FFFFFF; font-size: 0.95rem; }
+    .navbar-nav .nav-link.active { font-weight: 700; text-decoration: underline; text-underline-offset: 6px; }
+
+    .page-header {
+      max-width: 1100px;
+      margin: 30px auto 10px;
+      padding: 0 24px;
+    }
+    .page-header h1 { margin-bottom: 10px; }
+    .page-header p { max-width: 900px; margin: 0; }
+
+    .team-grid {
+      max-width: 1100px;
+      margin: 24px auto 0;
+      padding: 0 24px;
+    }
+
+    .team-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(13, 27, 42, 0.10);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(13, 27, 42, 0.10);
+      height: 100%;
+    }
+
+    .headshot-wrap {
+      padding: 20px 20px 0 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .headshot {
+      width: 120px;
+      height: 120px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 3px solid rgba(0,168,168,0.25);
+      box-shadow: 0 8px 20px rgba(13, 27, 42, 0.12);
+      background: #0D1B2A;
+    }
+
+    .role-pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,168,168,0.12);
+      color: #0D1B2A;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .btn-linkedin {
+      background: #FF6F3C;
+      color: #0D1B2A;
+      border: none;
+      font-weight: 700;
+    }
+    .btn-linkedin:hover { opacity: 0.92; }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #0D1B2A;
+      color: #FFFFFF;
+      border-top: 1px solid #4B4B4B;
+      margin-top: 60px;
+      font-size: 0.9rem;
+    }
+    .contact-info { margin-top: 10px; font-size: 0.9rem; }
+    .contact-info a { color: #00A8A8; text-decoration: none; }
+    .contact-info a:hover { text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="index.html">
+        <img src="logo.png" alt="Funteron Logo" />
+      </a>
+      <div class="ms-auto">
+        <ul class="navbar-nav flex-row gap-3">
+          <li class="nav-item">
+            <a class="nav-link" href="demo.html">Demo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="team.html">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"
+               href="mailto:info@funteron.com?subject=Funteron%20demo%20request&body=Hi%20Funteron%20team%2C%0D%0A%0D%0AI%E2%80%99d%20like%20to%20book%20a%20demo.%0D%0A%0D%0AName%3A%0D%0ACompany%3A%0D%0ARole%3A%0D%0APhone%3A%0D%0A%0D%0AThanks%2C">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <h1>Leadership team</h1>
+    <p class="lead">
+      We’re building a B2B odds comparison platform for media and sportsbook partners. Here are the people leading delivery, integration, and scale.
+    </p>
+  </header>
+
+  <main class="team-grid">
+    <div class="row g-4">
+      <!-- Keith (first) -->
+      <div class="col-md-6 col-lg-3">
+        <div class="team-card p-3">
+          <div class="headshot-wrap">
+            <!-- Save the file as keith.jpg in your repo -->
+            <img class="headshot" src="keith.jpg" alt="Keith O’Loughlin" />
+          </div>
+          <div class="p-3">
+            <div class="mb-2"><span class="role-pill">Chairman</span></div>
+            <h2 class="h5 mb-2">Keith O’Loughlin</h2>
+            <p class="mb-3" style="font-size:0.95rem; line-height:1.5;">
+              Former EVP at Scientific Games and driving force behind the $800M sale of OpenBet to Endeavor.
+              Brings deep expertise in gaming tech, sportsbook infrastructure, and scaling B2B platforms globally.
+            </p>
+            <a class="btn btn-linkedin w-100"
+               href="https://www.linkedin.com/in/keitholoughlin"
+               target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rochus -->
+      <div class="col-md-6 col-lg-3">
+        <div class="team-card p-3">
+          <div class="headshot-wrap">
+            <!-- Save the file as rochus.png in your repo -->
+            <img class="headshot" src="rochus.png" alt="Rochus Schreiber" />
+          </div>
+          <div class="p-3">
+            <div class="mb-2"><span class="role-pill">CEO</span></div>
+            <h2 class="h5 mb-2">Rochus Schreiber</h2>
+            <p class="mb-3" style="font-size:0.95rem; line-height:1.5;">
+              Tech entrepreneur and C-level exec at Digicel, SeaChange, BTL and Accenture.
+              Brings strategic execution, and experience in scaling platforms and leading large scale media integrations.
+            </p>
+            <a class="btn btn-linkedin w-100"
+               href="https://www.linkedin.com/in/rochus-schreiber-baa84/"
+               target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Franz -->
+      <div class="col-md-6 col-lg-3">
+        <div class="team-card p-3">
+          <div class="headshot-wrap">
+            <!-- Save the file as franz.png in your repo -->
+            <img class="headshot" src="franz.png" alt="Franz Cauchi" />
+          </div>
+          <div class="p-3">
+            <div class="mb-2"><span class="role-pill">CTO</span></div>
+            <h2 class="h5 mb-2">Franz Cauchi</h2>
+            <p class="mb-3" style="font-size:0.95rem; line-height:1.5;">
+              Veteran product and technology leader in sports betting platforms at Betsson, Ladbrokes Coral, Symphony Solutions,
+              Scientific Games, and OpenBet. Expert in sportsbook integrations and affiliate tech.
+            </p>
+            <a class="btn btn-linkedin w-100"
+               href="https://www.linkedin.com/in/franz-josef-cauchi-1055b272"
+               target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Andy -->
+      <div class="col-md-6 col-lg-3">
+        <div class="team-card p-3">
+          <div class="headshot-wrap">
+            <!-- Save the file as andy.jpg in your repo -->
+            <img class="headshot" src="andy.jpg" alt="Andy Hoskins" />
+          </div>
+          <div class="p-3">
+            <div class="mb-2"><span class="role-pill">COO</span></div>
+            <h2 class="h5 mb-2">Andy Hoskins</h2>
+            <p class="mb-3" style="font-size:0.95rem; line-height:1.5;">
+              Seasoned executive in gaming technology and B2B platforms. As former SVP at OpenBet, he was instrumental in the
+              $800M sale to Endeavor and its 2024 sale to OB Global for $450M.
+            </p>
+            <a class="btn btn-linkedin w-100"
+               href="https://www.linkedin.com/in/ahoskins/"
+               target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 Funteron. All rights reserved.
+
+<!-- Add this line in the footer on EVERY page (index.html, demo.html, team.html),
+     inside the existing <div class="contact-info"> ... </div> -->
+
+<div class="contact-info">
+  Contact us at <a href="mailto:info@funteron.com">info@funteron.com</a>
+  &nbsp;|&nbsp;
+  <a href="https://www.linkedin.com/company/funteron/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+</div>
+
+
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
