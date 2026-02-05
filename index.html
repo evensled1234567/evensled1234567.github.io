@@ -88,38 +88,36 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container-fluid px-4">
-      <a class="navbar-brand" href="index.html">
-        <img src="logo.png" alt="Funteron Logo">
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid px-4">
+    <!-- Left cluster: logo + menu -->
+    <div class="d-flex align-items-center">
+      <a class="navbar-brand me-3" href="index.html">
+        <img src="logo.png" alt="Funteron Logo" />
       </a>
-      <div class="ms-auto">
- 
-<!-- Update your existing index.html navbar: add Team -->
-<!-- Replace the <ul> inside the navbar with this version (or add the Team <li>) -->
-<ul class="navbar-nav flex-row gap-3">
-  <li class="nav-item">
-    <a class="nav-link" href="demo.html">Demo</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="team.html">Team</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link"
-       href="mailto:info@funteron.com?subject=Funteron%20demo%20request&body=Hi%20Funteron%20team%2C%0D%0A%0D%0AI%E2%80%99d%20like%20to%20book%20a%20demo.%0D%0A%0D%0AName%3A%0D%0ACompany%3A%0D%0ARole%3A%0D%0APhone%3A%0D%0A%0D%0AThanks%2C">
-      Contact
-    </a>
-  </li>
-</ul>
 
-
-
-
-
-      </div>
+      <ul class="navbar-nav flex-row align-items-center gap-3 mb-0">
+        <li class="nav-item">
+          <a class="nav-link" href="demo.html">Demo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="team.html">Team</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             href="mailto:info@funteron.com?subject=Funteron%20demo%20request&body=Hi%20Funteron%20team%2C%0D%0A%0D%0AI%E2%80%99d%20like%20to%20book%20a%20demo.%0D%0A%0D%0AName%3A%0D%0ACompany%3A%0D%0ARole%3A%0D%0APhone%3A%0D%0A%0D%0AThanks%2C">
+            Contact
+          </a>
+        </li>
+      </ul>
     </div>
-  </nav>
 
+    <!-- Optional right side (leave empty for now) -->
+    <!-- <div class="ms-auto"> ... </div> -->
+  </div>
+</nav>
+
+  
   <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -198,3 +196,4 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
