@@ -1,0 +1,136 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Funteron | Contact</title>
+  <meta name="description" content="Contact Funteron to book a demo or discuss partnerships." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #F4F4F4;
+      color: #0D1B2A;
+      margin-top: 120px;
+    }
+
+    .navbar { background-color: #0D1B2A; }
+    .navbar-brand img { height: 80px; }
+    .navbar-brand { padding-top: 0; padding-bottom: 0; }
+    .navbar-nav .nav-link { color: #FFFFFF; font-size: 0.95rem; padding-top: 0; padding-bottom: 0; }
+    .navbar-nav .nav-link.active { font-weight: 700; text-decoration: underline; text-underline-offset: 6px; }
+
+    .page-header {
+      max-width: 1100px;
+      margin: 55px auto 10px;
+      padding: 0 24px;
+    }
+    .page-header h1 { margin-bottom: 10px; }
+    .page-header p { max-width: 900px; margin: 0; }
+
+    .content-wrap {
+      max-width: 1100px;
+      margin: 24px auto 0;
+      padding: 0 24px;
+    }
+
+    .panel {
+      background: #FFFFFF;
+      border: 1px solid rgba(13, 27, 42, 0.10);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(13, 27, 42, 0.10);
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,168,168,0.12);
+      color: #0D1B2A;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .form-embed {
+      width: 100%;
+      min-height: 650px; /* better than 500px; adjust later if needed */
+      border: none;
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #0D1B2A;
+      color: #FFFFFF;
+      border-top: 1px solid #4B4B4B;
+      margin-top: 60px;
+      font-size: 0.9rem;
+    }
+    .contact-info { margin-top: 10px; font-size: 0.9rem; }
+    .contact-info a { color: #00A8A8; text-decoration: none; }
+    .contact-info a:hover { text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid px-4">
+      <div class="d-flex align-items-center">
+        <a class="navbar-brand me-3" href="index.html">
+          <img src="logo.png" alt="Funteron Logo" />
+        </a>
+
+        <ul class="navbar-nav flex-row align-items-center gap-3 mb-0">
+          <li class="nav-item">
+            <a class="nav-link" href="demo.html">Demo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="team.html">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="mb-2"><span class="pill">Get in touch</span></div>
+    <h1>Contact</h1>
+    <p class="lead">
+      Tell us what you’re trying to achieve and we’ll come back quickly.
+    </p>
+  </header>
+
+  <main class="content-wrap">
+    <div class="panel p-4 p-md-5">
+      <iframe
+        class="form-embed"
+        aria-label="Contact"
+        frameborder="0"
+        src="https://forms.zohopublic.eu/rochusfunt1/form/Contact/formperma/dF2d_Vv2_ulP3rwBTDsufVjoidxkcG0oZM9z6BNo2Fs">
+      </iframe>
+
+      <div class="mt-4" style="font-size:0.95rem;">
+        Prefer email? Write to <a href="mailto:info@funteron.com">info@funteron.com</a>.
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 Funteron. All rights reserved.
+    <div class="contact-info">
+      Contact us at <a href="mailto:info@funteron.com">info@funteron.com</a>
+      &nbsp;|&nbsp;
+      <a href="https://www.linkedin.com/company/funteron/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
