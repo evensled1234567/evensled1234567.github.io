@@ -42,8 +42,8 @@
       font-size: 0.9rem;
     }
 
-    /* Responsive embedded video */
-    .video-wrap {
+    /* Responsive video stage (supports thumbnail + injected iframe) */
+    .video-stage {
       position: relative;
       padding-top: 56.25%;
       height: 0;
@@ -51,13 +51,95 @@
       border-radius: 14px;
       box-shadow: 0 10px 30px rgba(13,27,42,0.18);
       background: #0D1B2A;
+      border: 0;
     }
-    .video-wrap iframe {
+    .video-stage iframe {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
       border: 0;
     }
+
+    /* Thumbnail overlay */
+    .video-thumb-btn {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+    .video-thumb-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.92;
+      transform: scale(1.02);
+    }
+    .video-play-badge {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 86px;
+      height: 86px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .video-play-triangle {
+      width: 0;
+      height: 0;
+      border-top: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+      border-left: 22px solid rgba(255,255,255,0.92);
+      margin-left: 4px;
+    }
+
+    /* Language switch */
+    .lang-tabs {
+      display: inline-flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .lang-btn {
+      border: 1px solid rgba(13,27,42,0.18);
+      background: #FFFFFF;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 700;
+      color: #0D1B2A;
+    }
+    .lang-btn.active {
+      background: rgba(0,168,168,0.12);
+      border-color: rgba(0,168,168,0.35);
+    }
+    .video-meta {
+      display: flex;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      font-size: 0.92rem;
+      color: #0D1B2A;
+    }
+    .video-meta a {
+      color: #00A8A8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .video-meta a:hover { text-decoration: underline; }
   </style>
 </head>
 
@@ -83,11 +165,7 @@
       window.gtag = gtag;
 
       gtag('js', new Date());
-
-      // IMPORTANT: Replace with your GA4 Measurement ID
-      gtag('config', 'G-TEJW4N23X6', {
-        anonymize_ip: true
-      });
+      gtag('config', 'G-TEJW4N23X6', { anonymize_ip: true });
 
       const s = document.createElement("script");
       s.async = true;
@@ -122,7 +200,6 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    // On page load: if consent is already granted, load GA. If no choice, show banner.
     document.addEventListener("DOMContentLoaded", function () {
       if (hasConsent()) {
         loadGA();
@@ -131,15 +208,12 @@
       }
     });
 
-    // Wire up buttons
     document.addEventListener("click", function (e) {
       if (e.target && e.target.id === "cookieAccept") acceptAnalytics();
       if (e.target && e.target.id === "cookieReject") rejectAnalytics();
     });
   })();
 </script>
-
-
 
 <body>
 
@@ -162,10 +236,8 @@
   </div>
 </div>
 
-
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid px-4">
-    <!-- Left cluster: logo + menu -->
     <div class="d-flex align-items-center">
       <a class="navbar-brand me-3" href="index.html">
         <img src="logo.png" alt="Funteron Logo" />
@@ -183,50 +255,68 @@
         </li>
       </ul>
     </div>
-
-    <!-- Optional right side (leave empty for now) -->
-    <!-- <div class="ms-auto"> ... </div> -->
   </div>
 </nav>
 
-  
-  <main class="container px-4">
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <div class="mt-4 mb-3">
-          <span class="badge-soft">Product demo</span>
-        </div>
-
-        <h1 class="mb-3">Funteron platform demo</h1>
-        <p class="lead mb-4">
-          A quick walkthrough of the experience we deliver for media and operator partners: discovery, odds comparison, and a clean route to conversion.
-        </p>
-
-        <div class="video-wrap mb-4">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/O1uRI12JZwU?rel=0&modestbranding=1"
-            title="Funteron promo video"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
-
-        <div class="p-4 bg-white rounded-4 shadow-sm mt-4">
-          <h2 class="h5 mb-3">Want the full walkthrough?</h2>
-          <p class="mb-3">
-            If you’d like a tailored demo and a short technical overview (integration model, security, and operator connectivity), email us and we’ll set it up.
-          </p>
-          <a class="btn btn-lg"
-             href="mailto:info@funteron.com?subject=Funteron%20demo%20request&body=Hi%20Funteron%20team%2C%0D%0A%0D%0AI%E2%80%99d%20like%20to%20book%20a%20demo.%0D%0A%0D%0AName%3A%0D%0ACompany%3A%0D%0ARole%3A%0D%0APhone%3A%0D%0A%0D%0AThanks%2C"
-             style="background:#FF6F3C;color:#0D1B2A;border:none;">
-            Book a demo
-          </a>
-        </div>
-
+<main class="container px-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="mt-4 mb-3">
+        <span class="badge-soft">Product demo</span>
       </div>
+
+      <h1 class="mb-3">Funteron platform demo</h1>
+      <p class="lead mb-4">
+        A quick walkthrough of the experience we deliver for media and operator partners: discovery, odds comparison, and a clean route to conversion.
+      </p>
+
+      <!-- Language tabs -->
+      <div class="lang-tabs" role="tablist" aria-label="Select demo language">
+        <button class="lang-btn active" id="langEnBtn" type="button" role="tab" aria-selected="true" aria-controls="panelEn">English</button>
+        <button class="lang-btn" id="langPtBtn" type="button" role="tab" aria-selected="false" aria-controls="panelPt">Português</button>
+      </div>
+
+      <!-- EN panel -->
+      <section id="panelEn" role="tabpanel" aria-labelledby="langEnBtn">
+        <div class="video-stage mb-2"
+             data-video-id="O1uRI12JZwU"
+             data-title="Funteron promo video (English)"
+             data-youtube-url="https://www.youtube.com/watch?v=O1uRI12JZwU">
+        </div>
+        <div class="video-meta mb-4">
+          <div>English demo (click to play). If playback fails, use the YouTube link.</div>
+          <div><a href="https://www.youtube.com/watch?v=O1uRI12JZwU" target="_blank" rel="noopener noreferrer">Open in YouTube</a></div>
+        </div>
+      </section>
+
+      <!-- PT panel -->
+      <section id="panelPt" role="tabpanel" aria-labelledby="langPtBtn" style="display:none;">
+        <div class="video-stage mb-2"
+             data-video-id="8TAxHswaJNY"
+             data-title="Funteron promo video (Português)"
+             data-youtube-url="https://www.youtube.com/watch?v=8TAxHswaJNY">
+        </div>
+        <div class="video-meta mb-4">
+          <div>Português demo (click to play). If playback fails, use the YouTube link.</div>
+          <div><a href="https://www.youtube.com/watch?v=8TAxHswaJNY" target="_blank" rel="noopener noreferrer">Open in YouTube</a></div>
+        </div>
+      </section>
+
+      <div class="p-4 bg-white rounded-4 shadow-sm mt-4">
+        <h2 class="h5 mb-3">Want the full walkthrough?</h2>
+        <p class="mb-3">
+          If you’d like a tailored demo and a short technical overview (integration model, security, and operator connectivity), email us and we’ll set it up.
+        </p>
+        <a class="btn btn-lg"
+           href="mailto:info@funteron.com?subject=Funteron%20demo%20request&body=Hi%20Funteron%20team%2C%0D%0A%0D%0AI%E2%80%99d%20like%20to%20book%20a%20demo.%0D%0A%0D%0AName%3A%0D%0ACompany%3A%0D%0ARole%3A%0D%0APhone%3A%0D%0A%0D%0AThanks%2C"
+           style="background:#FF6F3C;color:#0D1B2A;border:none;">
+          Book a demo
+        </a>
+      </div>
+
     </div>
-  </main>
+  </div>
+</main>
 
 <footer>
   &copy; 2026 Funteron. All rights reserved.
@@ -245,11 +335,104 @@
   </div>
 </footer>
 
+<script>
+  // Option 2 behaviour: tabs + click-to-play thumbnail (inject iframe only on click)
+  (function () {
+    const enBtn = document.getElementById("langEnBtn");
+    const ptBtn = document.getElementById("langPtBtn");
+    const panelEn = document.getElementById("panelEn");
+    const panelPt = document.getElementById("panelPt");
 
+    function ytThumb(videoId) {
+      return "https://i.ytimg.com/vi/" + videoId + "/hqdefault.jpg";
+    }
 
+    function renderThumbnail(stageEl) {
+      const videoId = stageEl.getAttribute("data-video-id");
+      const title = stageEl.getAttribute("data-title") || "Demo video";
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      stageEl.innerHTML = "";
+
+      const img = document.createElement("img");
+      img.className = "video-thumb-img";
+      img.alt = title;
+      img.loading = "lazy";
+      img.src = ytThumb(videoId);
+
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "video-thumb-btn";
+      btn.setAttribute("aria-label", "Play demo video");
+      btn.addEventListener("click", function () {
+        injectIframe(stageEl);
+      });
+
+      const badge = document.createElement("div");
+      badge.className = "video-play-badge";
+      const tri = document.createElement("div");
+      tri.className = "video-play-triangle";
+      badge.appendChild(tri);
+
+      stageEl.appendChild(img);
+      stageEl.appendChild(btn);
+      stageEl.appendChild(badge);
+    }
+
+    function injectIframe(stageEl) {
+      const videoId = stageEl.getAttribute("data-video-id");
+      const title = stageEl.getAttribute("data-title") || "Demo video";
+
+      stopAll();
+
+      stageEl.innerHTML = "";
+      const iframe = document.createElement("iframe");
+      iframe.title = title;
+      iframe.loading = "lazy";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.allowFullscreen = true;
+      iframe.src = "https://www.youtube-nocookie.com/embed/" + videoId + "?autoplay=1&rel=0&modestbranding=1";
+
+      stageEl.appendChild(iframe);
+    }
+
+    function stopAll() {
+      document.querySelectorAll(".video-stage").forEach(function (stage) {
+        if (stage.querySelector("iframe")) {
+          renderThumbnail(stage);
+        }
+      });
+    }
+
+    function setActive(lang) {
+      if (lang === "en") {
+        enBtn.classList.add("active");
+        ptBtn.classList.remove("active");
+        enBtn.setAttribute("aria-selected", "true");
+        ptBtn.setAttribute("aria-selected", "false");
+        panelEn.style.display = "";
+        panelPt.style.display = "none";
+      } else {
+        ptBtn.classList.add("active");
+        enBtn.classList.remove("active");
+        ptBtn.setAttribute("aria-selected", "true");
+        enBtn.setAttribute("aria-selected", "false");
+        panelPt.style.display = "";
+        panelEn.style.display = "none";
+      }
+      stopAll();
+    }
+
+    enBtn.addEventListener("click", function () { setActive("en"); });
+    ptBtn.addEventListener("click", function () { setActive("pt"); });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll(".video-stage").forEach(function (stage) {
+        renderThumbnail(stage);
+      });
+    });
+  })();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
