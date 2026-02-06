@@ -93,7 +93,110 @@
   </style>
 </head>
 
+
+<script>
+  // === Funteron cookie consent + GA gating (static-site friendly) ===
+  (function () {
+    const CONSENT_KEY = "funteron_cookie_consent_v1"; // value: "accepted" | "rejected"
+
+    function hasConsent() {
+      return localStorage.getItem(CONSENT_KEY) === "accepted";
+    }
+    function hasMadeChoice() {
+      const v = localStorage.getItem(CONSENT_KEY);
+      return v === "accepted" || v === "rejected";
+    }
+
+    function loadGA() {
+      if (window.__gaLoaded) return;
+      window.__gaLoaded = true;
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+
+      gtag('js', new Date());
+
+      // IMPORTANT: Replace with your GA4 Measurement ID
+      gtag('config', 'G-TEJW4N23X6', {
+        anonymize_ip: true
+      });
+
+      const s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=G-TEJW4N23X6";
+      document.head.appendChild(s);
+    }
+
+    function acceptAnalytics() {
+      localStorage.setItem(CONSENT_KEY, "accepted");
+      hideBanner();
+      loadGA();
+    }
+
+    function rejectAnalytics() {
+      localStorage.setItem(CONSENT_KEY, "rejected");
+      hideBanner();
+    }
+
+    function showBanner() {
+      const banner = document.getElementById("cookieBanner");
+      if (banner) banner.style.display = "block";
+    }
+
+    function hideBanner() {
+      const banner = document.getElementById("cookieBanner");
+      if (banner) banner.style.display = "none";
+    }
+
+    // Expose a small helper so the footer "Cookie settings" link can reopen the banner
+    window.funteronOpenCookieSettings = function () {
+      showBanner();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    // On page load: if consent is already granted, load GA. If no choice, show banner.
+    document.addEventListener("DOMContentLoaded", function () {
+      if (hasConsent()) {
+        loadGA();
+      } else if (!hasMadeChoice()) {
+        showBanner();
+      }
+    });
+
+    // Wire up buttons
+    document.addEventListener("click", function (e) {
+      if (e.target && e.target.id === "cookieAccept") acceptAnalytics();
+      if (e.target && e.target.id === "cookieReject") rejectAnalytics();
+    });
+  })();
+</script>
+
+
+
+
 <body>
+
+<div id="cookieBanner" style="display:none; position:fixed; left:18px; right:18px; bottom:18px; z-index:9999; max-width:1100px; margin:0 auto;">
+  <div style="background:#0D1B2A; color:#FFFFFF; border-radius:14px; padding:16px 18px; box-shadow:0 12px 30px rgba(13,27,42,0.35);">
+    <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;">
+      <div style="flex:1; min-width:260px; font-size:0.95rem; line-height:1.35;">
+        We use analytics cookies to understand site usage and improve the experience.
+        You can accept or reject analytics. Read more in our <a href="cookies.html" style="color:#00A8A8; text-decoration:none;">Cookie Policy</a>.
+      </div>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <button id="cookieReject" style="background:transparent; color:#FFFFFF; border:1px solid rgba(255,255,255,0.45); border-radius:10px; padding:10px 12px; font-weight:700;">
+          Reject
+        </button>
+        <button id="cookieAccept" style="background:#FF6F3C; color:#0D1B2A; border:none; border-radius:10px; padding:10px 12px; font-weight:900;">
+          Accept
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid px-4">
     <div class="d-flex align-items-center">
@@ -239,14 +342,23 @@
     </div>
   </main>
 
-  <footer>
-    &copy; 2026 Funteron. All rights reserved.
-    <div class="contact-info">
-      Contact us at <a href="mailto:info@funteron.com">info@funteron.com</a>
-      &nbsp;|&nbsp;
-      <a href="https://www.linkedin.com/company/funteron/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
-  </footer>
+<footer>
+  &copy; 2026 Funteron. All rights reserved.
+  <div class="contact-info">
+    <a href="privacy.html">Privacy</a>
+    &nbsp;|&nbsp;
+    <a href="terms.html">Terms</a>
+    &nbsp;|&nbsp;
+    <a href="cookies.html">Cookies</a>
+    &nbsp;|&nbsp;
+    <a href="#" onclick="window.funteronOpenCookieSettings(); return false;">Cookie settings</a>
+    &nbsp;|&nbsp;
+    <a href="mailto:info@funteron.com">info@funteron.com</a>
+    &nbsp;|&nbsp;
+    <a href="https://www.linkedin.com/company/funteron/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </div>
+</footer>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
